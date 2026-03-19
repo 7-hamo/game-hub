@@ -1,22 +1,14 @@
 import useGenres, { type Genre } from "@/hooks/useGenres";
 import getCroppedImage from "@/services/image-url";
-import {
-  Button,
-  Heading,
-  HStack,
-  Image,
-  List,
-  Spinner,
-} from "@chakra-ui/react";
+import { Button, Heading, HStack, Image, List } from "@chakra-ui/react";
 
 interface Props {
   onSelectedGenre: (genre: Genre) => void;
   selectedGenre: Genre | null;
 }
 const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
-  const { data, isLoading, errors } = useGenres();
-  if (errors) return null;
-  if (isLoading) return <Spinner />;
+  const { data } = useGenres();
+
   return (
     <>
       <Heading fontSize={"2xl"} marginBottom={2}>
