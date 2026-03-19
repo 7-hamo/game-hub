@@ -29,7 +29,7 @@ const PlatformIconList = ({ platforms }: Props) => {
     web: BsGlobe,
     android: FaAndroid,
   };
-
+  if (!Array.isArray(platforms)) return null;
   return (
     <HStack gapX={4}>
       {platforms.map((platform) => {

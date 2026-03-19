@@ -9,14 +9,15 @@ interface Props {
   game: Game;
 }
 const GameCard = ({ game }: Props) => {
+  const platforms = Array.isArray(game.parent_platforms)
+    ? game.parent_platforms.map((p) => p.platform)
+    : [];
   return (
     <Card.Root overflow={"hidden"}>
       <Image src={getCroppedImage(game.background_image)}></Image>
       <Card.Body>
         <HStack justifyContent="space-between" marginBottom={5}>
-          <PlatformIconList
-            platforms={game.parent_platforms.map((p) => p.platform)}
-          />
+          <PlatformIconList platforms={platforms} />
           <CriticScore score={game.metacritic} />
         </HStack>
         <Card.Title fontSize={"2xl"} fontWeight={"bold"}>
