@@ -16,7 +16,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   return (
     <Menu.Root open={open} onOpenChange={(e) => setOpen(e.open)}>
       <Menu.Trigger asChild>
-        <Button marginBottom={1} variant="outline" size="sm">
+        <Button variant="outline" size="sm">
           {selectedPlatform?.name || "Platforms"}
         </Button>
       </Menu.Trigger>
